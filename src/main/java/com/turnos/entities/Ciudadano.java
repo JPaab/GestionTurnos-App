@@ -33,7 +33,7 @@ public class Ciudadano {
     @OneToMany(mappedBy = "ciudadanos", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Turno> turnos;
 
-    //Aqui el constructor vacio requerido por el JPA
+    //Aqui el constructor vacio requerido por el JPA.
     public Ciudadano() {
     }
 
