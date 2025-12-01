@@ -1,4 +1,4 @@
-package com.turnos.util;
+package com.turnos.utils;
 
 public enum ColorUtils {
         RESET("\u001B[0m"),

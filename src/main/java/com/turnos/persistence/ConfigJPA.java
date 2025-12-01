@@ -1,11 +1,11 @@
-package com.turnos.util;
+package com.turnos.persistence;
 
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class JPAUtil {
+public class ConfigJPA {
     private static final EntityManagerFactory emf;
 
     static {
@@ -16,18 +16,15 @@ public class JPAUtil {
             System.err.println("ERROR al crear EntityManagerFactory: " + ex);
             //aqui lanza una excepcion si falla el initializer
             throw new ExceptionInInitializerError(ex);
-
-
         }
 
-            }
+    }
 
-public static EntityManager getEntityManager() {
-    return emf.createEntityManager();
-}
+    public static EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
 
     public static void close() {
         emf.close();
     }
-        }
-
+}
