@@ -1,4 +1,4 @@
-package com.turnos.servlet;
+package com.turnos.servlets;
 
 import com.turnos.entities.Ciudadano;
 import jakarta.servlet.ServletException;
@@ -24,5 +24,7 @@ public class CiudadanoServlet extends HttpServlet {
         //Muestra la tabla de los ciudadanos
         req.getRequestDispatcher("jsp/listar-ciudadanos.jsp")
                 .forward(req, resp);
+
+
     }
 }

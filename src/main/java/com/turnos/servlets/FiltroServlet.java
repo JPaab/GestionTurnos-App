@@ -1,4 +1,4 @@
-package com.turnos.servlet;
+package com.turnos.servlets;
 
 import com.turnos.entities.Ciudadano;
 import jakarta.servlet.ServletException;
@@ -29,5 +29,7 @@ public class FiltroServlet extends HttpServlet {
         ciudadanos.add(c);
 
         resp.sendRedirect("ciudadano");
+
+
     }
 }
