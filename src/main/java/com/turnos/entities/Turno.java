@@ -16,7 +16,8 @@ public class Turno {
 
     //aqui seria para ver el estado del turno ya sea EN ESPERA o YA ATENDIDO
     @Column(nullable = false)
-    private String estado; //FIXME//////////////////////////////////////////////////////////////////////////////
+    @Enumerated(EnumType.STRING)
+    private TurnoEstado estado; // FIXME HECHO, CREE UN ENUM TurnoEstado.
 
     //aqui para ver la fecha y hora en la que se ha creado el turno
     @Column(nullable = false)
@@ -35,7 +36,7 @@ public class Turno {
     public Turno() {
     }
 
-    public Turno(String identificadorProgresivo, String estado, LocalDateTime fecha, String descripcionTramite, Ciudadano ciudadano) {
+    public Turno(String identificadorProgresivo, TurnoEstado estado, LocalDateTime fecha, String descripcionTramite, Ciudadano ciudadano) {
         this.identificadorProgresivo = identificadorProgresivo;
         this.estado = estado;
         this.fecha = fecha;
@@ -50,8 +51,8 @@ public class Turno {
     public String getIdentificadorProgresivo() {return identificadorProgresivo;}
     public void setIdentificadorProgresivo(String identificadorProgresivo) {this.identificadorProgresivo = identificadorProgresivo;}
 
-    public String getEstado() {return estado;}
-    public void setEstado(String estado) {this.estado = estado;}
+    public TurnoEstado getEstado() {return estado;}
+    public void setEstado(TurnoEstado estado) {this.estado = estado;}
 
     public LocalDateTime getFecha() {return fecha;}
     public void setFecha(LocalDateTime fecha) {this.fecha = fecha;}
