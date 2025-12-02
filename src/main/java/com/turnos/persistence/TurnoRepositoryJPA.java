@@ -8,7 +8,7 @@ import java.util.List;
 public class TurnoRepositoryJPA {
 
     public List<Turno> encontrarTodos() {
-        EntityManager em =  ConfigJPA.getEntityManager();
+        EntityManager em = ConfigJPA.getEntityManager();
         try {
             return em.createQuery("SELECT t FROM Turno t", Turno.class)
                     .getResultList();
@@ -26,11 +26,18 @@ public class TurnoRepositoryJPA {
         }
     }
 
-    public Long obtenerSiguienteTurno() {
+    public String obtenerSiguienteIdentificador() {
         EntityManager em = ConfigJPA.getEntityManager();
         try {
-            Long max = em.createQuery("SELECT COALESCE(MAX(t.numeroTurno), 0) FROM Turno t", Long.class).getSingleResult();
-            return max + 1;
+            String maxId = em.createQuery(
+                    "SELECT MAX(t.identificadorProgresivo) FROM Turno t WHERE t.identificadorProgresivo LIKE 'T%'",
+                    String.class).getSingleResult();
+
+            if (maxId == null) return "T0001";
+
+            int numero = Integer.parseInt(maxId.substring(1)) + 1;
+            return String.format("T%04d", numero);
+
         } finally {
             em.close();
         }
