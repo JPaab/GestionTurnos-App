@@ -4,6 +4,8 @@ import com.turnos.entities.Ciudadano;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 
+import java.util.List;
+
 public class CiudadanoRepositoryJPA {
 
     public Ciudadano buscarPorDni(String dni) {
@@ -14,6 +16,16 @@ public class CiudadanoRepositoryJPA {
                     .getSingleResult();
         } catch (NoResultException e) {
             return null;
+        } finally {
+            em.close();
+        }
+    }
+
+    public List<Ciudadano> encontrarTodos() {
+        EntityManager em = ConfigJPA.getEntityManager();
+        try {
+            return em.createQuery("SELECT c FROM Ciudadano c ORDER BY c.apellido, c.nombre", Ciudadano.class)
+                    .getResultList();
         } finally {
             em.close();
         }
