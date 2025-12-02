@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/listas")
+@WebServlet("/ciudadanos")
 public class CiudadanoServlet extends HttpServlet {
 
     private CiudadanoRepositoryJPA ciudadanoRepo = new CiudadanoRepositoryJPA();
@@ -27,7 +27,7 @@ public class CiudadanoServlet extends HttpServlet {
             req.getRequestDispatcher("jsp/crear-ciudadano.jsp").forward(req, resp);
         }else{
             List <Ciudadano> ciudadanos = ciudadanoRepo.encontrarTodos();
-            req.setAttribute("Ciudadanos", ciudadanos);
+            req.setAttribute("ciudadanos", ciudadanos);
             req.getRequestDispatcher("jsp/listar-ciudadanos.jsp").forward(req, resp);
         }
     }
@@ -57,7 +57,7 @@ public class CiudadanoServlet extends HttpServlet {
             Ciudadano ciudadano = new Ciudadano(nombre, apellido, dni, email);
             ciudadanoRepo.guardar(ciudadano);
 
-            resp.sendRedirect("Ciudadano creado correctamente");
+            resp.sendRedirect("ciudadanos?success=created");
         }catch (IllegalArgumentException e){
             req.setAttribute("Error ", e.getMessage());
             req.setAttribute("nombre", req.getParameter("nombre"));
