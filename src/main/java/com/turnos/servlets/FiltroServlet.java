@@ -56,11 +56,11 @@ public class FiltroServlet extends HttpServlet {
                     .toList();
                         req.setAttribute("turnos", turnosFiltrados);
                         req.setAttribute("totalFiltrados", turnosFiltrados.size());
-                        req.setAttribute("totalTodos", todosLosTurnos);
+                        req.setAttribute("turnosOriginales", todosLosTurnos);
                         req.getRequestDispatcher("jsp/listar-turnos.jsp")
                                 .forward(req, resp);
             }catch (Exception e){
-                    req.setAttribute("Error ", "Fallo en el filtro :c" + e.getMessage());
+                    req.setAttribute("error", "- Fallo en el filtro." + e.getMessage());
                     req.getRequestDispatcher("jsp/filtrar-turnos.jsp")
                             .forward(req, resp);
             }

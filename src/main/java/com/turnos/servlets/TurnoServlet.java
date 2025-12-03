@@ -49,7 +49,7 @@ public class TurnoServlet extends HttpServlet {
             if (descripcion == null || descripcion.trim().isEmpty() ||
                     dni == null || dni.trim().isEmpty()) {
 
-                req.setAttribute("error", "Todos los campos son obligatorios");
+                req.setAttribute("error", "- Todos los campos son obligatorios");
                 req.getRequestDispatcher("jsp/agregar-turno.jsp").forward(req, resp);
                 return;
 
@@ -58,7 +58,7 @@ public class TurnoServlet extends HttpServlet {
             Ciudadano ciudadano = ciudadanoRepo.buscarPorDni(dni);
 
             if (ciudadano == null) {
-                req.setAttribute("error", "No existe ciudadano con ese DNI");
+                req.setAttribute("error", "- No existe ciudadano con ese DNI");
                 req.getRequestDispatcher("jsp/agregar-turno.jsp").forward(req, resp);
                 return;
             }
@@ -71,7 +71,7 @@ public class TurnoServlet extends HttpServlet {
 
         } catch (Exception e) {
 
-            req.setAttribute("error", "fallo en turno: " + e.getMessage());
+            req.setAttribute("error", "- Fallo en turno. " + e.getMessage());
             req.getRequestDispatcher("jsp/agregar-turno.jsp").forward(req, resp);
 
         }

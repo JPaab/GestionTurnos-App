@@ -44,7 +44,7 @@ public class CiudadanoServlet extends HttpServlet {
                     dni == null || dni.trim().isEmpty() ||
                     email == null || email.trim().isEmpty()) {
 
-                req.setAttribute("Error: ", "Todos los campos son obligatorios");
+                req.setAttribute("error", "- Todos los campos son obligatorios");
                 req.setAttribute("nombre", nombre);
                 req.setAttribute("apellido", apellido);
                 req.setAttribute("dni", dni);
@@ -59,7 +59,7 @@ public class CiudadanoServlet extends HttpServlet {
 
             resp.sendRedirect("ciudadanos?success=created");
         }catch (IllegalArgumentException e){
-            req.setAttribute("Error ", e.getMessage());
+            req.setAttribute("error", e.getMessage());
             req.setAttribute("nombre", req.getParameter("nombre"));
             req.setAttribute("apellido", req.getParameter("apellido"));
             req.setAttribute("dni", req.getParameter("dni"));
@@ -69,7 +69,7 @@ public class CiudadanoServlet extends HttpServlet {
                     .forward(req, resp);
 
         }catch (Exception e){
-            req.setAttribute("Error, ", "fallo del servidor: " + e.getMessage());
+            req.setAttribute("error", "- Fallo del servidor." + e.getMessage());
             req.getRequestDispatcher("jsp/crear-ciudadano.jsp")
                     .forward(req, resp);
         }

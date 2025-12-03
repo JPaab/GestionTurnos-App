@@ -1,7 +1,6 @@
 package com.turnos.servlets;
 
 import com.turnos.entities.Turno;
-import com.turnos.entities.TurnoEstado;
 import com.turnos.persistence.TurnoRepositoryJPA;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/turno/actualizar")
+@WebServlet("/turnos/actualizar")
 public class ActualizarTurnoServlet extends HttpServlet {
 
     private final TurnoRepositoryJPA turnoRepositoryJPA = new TurnoRepositoryJPA();
@@ -23,8 +22,8 @@ public class ActualizarTurnoServlet extends HttpServlet {
         if (idParam != null && !idParam.isEmpty()) {
             Long id = Long.parseLong(idParam);
             Turno turno = turnoRepositoryJPA.encontrarPorId(id);
-            if (turno != null && turno.getEstado() == TurnoEstado.EN_ESPERA) {
-                turno.setEstado(TurnoEstado.ATENDIDO); //FIXME USAR METODO TURNO ENTITIES
+            if (turno != null && turno.estaEnEspera()) {
+                turno.marcarComoAtendido();
                 turnoRepositoryJPA.guardar(turno);
             }
         }

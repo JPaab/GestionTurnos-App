@@ -26,7 +26,7 @@ public class Turno {
     private String descripcionTramite;
 
     //aqui relacion ManyToOne: muchos turnos -> un ciudadano
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "ciudadano_id", nullable = false)
     private Ciudadano ciudadano;
 
