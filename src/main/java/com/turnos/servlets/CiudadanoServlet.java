@@ -69,7 +69,7 @@ public class CiudadanoServlet extends HttpServlet {
 
         } catch (Exception e) {
             req.setAttribute("error", "- Fallo del servidor." + e.getMessage());
-            req.getRequestDispatcher("Sijsp/crear-ciudadano.jsp")
+            req.getRequestDispatcher("jsp/crear-ciudadano.jsp")
                     .forward(req, resp);
         }
     }
