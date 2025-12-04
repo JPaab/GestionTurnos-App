@@ -25,9 +25,9 @@ public class TurnoServlet extends HttpServlet {
     //Enviar lista de turnos al JSP
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String accion = req.getParameter("accion");
+        String action = req.getParameter("action");
 
-        if ("nuevo".equals(accion)) {
+        if ("nuevo".equals(action)) {
             List<Ciudadano> ciudadanos = ciudadanoRepo.encontrarTodos();
             req.setAttribute("ciudadanos", ciudadanos);
             req.getRequestDispatcher("jsp/agregar-turno.jsp").forward(req, resp);
