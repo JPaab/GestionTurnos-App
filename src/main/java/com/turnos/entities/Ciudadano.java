@@ -28,7 +28,7 @@ public class Ciudadano {
     @Column(nullable = false, length = 100, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "ciudadano", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ciudadano", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Turno> turnos;
 
     //aqui el constructor vacio requerido por el JPA

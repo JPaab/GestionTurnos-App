@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/ciudadanos")
@@ -23,10 +22,10 @@ public class CiudadanoServlet extends HttpServlet {
 
         String action = req.getParameter("action");
 
-        if ("nuevo".equals(action)){
+        if ("nuevo".equals(action)) {
             req.getRequestDispatcher("jsp/crear-ciudadano.jsp").forward(req, resp);
-        }else{
-            List <Ciudadano> ciudadanos = ciudadanoRepo.encontrarTodos();
+        } else {
+            List<Ciudadano> ciudadanos = ciudadanoRepo.encontrarTodos();
             req.setAttribute("ciudadanos", ciudadanos);
             req.getRequestDispatcher("jsp/listar-ciudadanos.jsp").forward(req, resp);
         }
@@ -58,7 +57,7 @@ public class CiudadanoServlet extends HttpServlet {
             ciudadanoRepo.guardar(ciudadano);
 
             resp.sendRedirect("ciudadanos?success=created");
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             req.setAttribute("error", e.getMessage());
             req.setAttribute("nombre", req.getParameter("nombre"));
             req.setAttribute("apellido", req.getParameter("apellido"));
@@ -68,7 +67,7 @@ public class CiudadanoServlet extends HttpServlet {
             req.getRequestDispatcher("jsp/crear-ciudadano.jsp")
                     .forward(req, resp);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             req.setAttribute("error", "- Fallo del servidor." + e.getMessage());
             req.getRequestDispatcher("jsp/crear-ciudadano.jsp")
                     .forward(req, resp);

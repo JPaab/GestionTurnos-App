@@ -1,31 +1,62 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="es">
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+
+<html lang="es" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <head>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Listar ciudadanos</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <title>Listado de ciudadanos.</title>
 </head>
 <body>
-<!-- header -->
-<%@ include file="partials/header.jsp" %>
-<!-- contenido página principal -->
-<main>
-    <h2>Lisat de ciudadanos</h2>
-    <table>
-        <thead>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>DNI</th>
-        <th>Email</th>
-        </thead>
-        <body>
+<h1>Ciudadanos</h1>
 
-        </body>
+<c:if test="${param.success == 'created'}">
+    <div style="color:green">
+        Ciudadano creado correctamente.
+    </div>
+</c:if>
+
+<c:if test="${not empty error}">
+    <div style="color:red">
+        ${error}
+    </div>
+</c:if>
+
+<c:if test="${empty ciudadanos}">
+    <p>No hay ciudadanos registrados!</p>
+</c:if>
+
+<c:if test="${not empty ciudadanos}">
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Cantidad de turnos</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="c" items="${ciudadanos}">
+            <tr>
+            <td>${c.id}</td>
+            <td>${c.dni}</td>
+            <td>${c.nombreCompleto}</td>
+            <td>${c.email}</td>
+            <td>${c.cantidadTurnos}</td>
+            </tr>
+        </c:forEach>
+        </tbody>
     </table>
-</main>
-<!-- footer -->
-<%@ include file="partials/footer.jsp" %>
+</c:if>
+
+<br>
+<a href="${pageContext.request.contextPath}/ciudadanos?action=nuevo">
+    Crear nuevo ciudadano
+</a>
+<br><br>
+<a href="${pageContext.request.contextPath}/turnos">
+    Ir al listado de turnos
+</a>
 </body>
 </html>
