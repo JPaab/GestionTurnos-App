@@ -1,32 +1,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+
 <html lang="es">
 <head>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear ciudadano</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <title>Crear ciudadanos.</title>
 </head>
 <body>
-<!-- header -->
-<%@ include file="partials/header.jsp" %>
-<!-- contenido página principal -->
-<main>
-    <h2>Creacion de ciudadano</h2>
-    <form action="guardar" method="post">
-        <label>Nombre: <input type="text" name="Nombre" required placeholder="String"></label>
-        <label>Apellido: <input type="text" name="Apellido" required placeholder="String"></label>
-        <label>DNI: <input type="text" name="DNI" required placeholder="String"></label>
-        <label>Email: <input type="text" name="Email" required placeholder="String"></label>
-        <fieldset>
-            <legend>Botones</legend>
-            <button type="reset">Limpiar</button>
-            <button type="submit">Guardar</button>
-        </fieldset>
+<h1>Crear nuevo ciudadano</h1>
 
-    </form>
-</main>
-<!-- footer -->
-<%@ include file="partials/footer.jsp" %>
+<c:if test="${not empty error}">
+    <div style="color:red">
+        ${error}
+    </div>
+</c:if>
+
+<form method="post" action="${pageContext.request.contextPath}/ciudadanos">
+    <label>Nombre:</label><br>
+    <input type="text" name="nombre" value="${nombre}"/><br><br>
+
+    <label>Apellido:</label><br>
+    <input type="text" name="apellido" value="${apellido}"/><br><br>
+
+    <label>DNI:</label><br>
+    <input type="text" name="dni" value="${dni}"/><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" value="${email}"/><br><br>
+
+    <button type="submit">Guardar ciudadano.</button>
+</form>
+<a href="${pageContext.request.contextPath}/ciudadanos">Volver al listado de ciudadanos.</a>
 </body>
 </html>
