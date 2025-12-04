@@ -7,6 +7,10 @@
     <title>Crear ciudadanos.</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+    🏠
+    Inicio
+</a>
 <h1>Crear nuevo ciudadano</h1>
 
 <c:if test="${not empty error}">

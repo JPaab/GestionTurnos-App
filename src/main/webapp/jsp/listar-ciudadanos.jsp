@@ -7,6 +7,10 @@
     <title>Listado de ciudadanos.</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+    🏠
+    Inicio
+</a>
 <h1>Ciudadanos</h1>
 
 <c:if test="${param.success == 'created'}">

@@ -35,7 +35,7 @@
                     Ver turnos
                 </a>
                 <!-- Form para crear turno (agregar-turno.jsp vía TurnoServlet) -->
-                <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos?accion=nuevo">
+                <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos?action=nuevo">
                     Nuevo turno
                 </a>
                 <!-- Form de filtro (filtrar-turnos.jsp vía FiltroServlet) -->
