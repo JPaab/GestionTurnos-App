@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="es">
 <head>
@@ -7,6 +7,10 @@
     <title>Crear ciudadanos.</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+    🏠
+    Inicio
+</a>
 <h1>Crear nuevo ciudadano</h1>
 
 <c:if test="${not empty error}">

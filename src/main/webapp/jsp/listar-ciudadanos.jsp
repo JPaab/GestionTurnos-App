@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="es" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <head>
@@ -7,6 +7,10 @@
     <title>Listado de ciudadanos.</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+    🏠
+    Inicio
+</a>
 <h1>Ciudadanos</h1>
 
 <c:if test="${param.success == 'created'}">

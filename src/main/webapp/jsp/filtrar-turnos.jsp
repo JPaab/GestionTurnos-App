@@ -1,21 +1,28 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<html lang="es" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <form action="TurnoServlet" method="post" xmlns:c="">
-<h2>Filtrado de turnos</h2>
-<form action="TurnoServlet" method="get"></form>
-<input type="hidden" made="action" value="filtrar">
+    <a href="${pageContext.request.contextPath}/" class="boton-inicio">
+        🏠
+        Inicio
+    </a>
+    <h2>Filtrado de turnos</h2>
+    <form action="TurnoServlet" method="get"></form>
+    <input type="hidden" made="action" value="filtrar">
 
-<!-- Dropdown para elegir el estado por el que se filtrará (opcional, si no se elige nada, mostrará todos los ciudadanos) -->
-<label>Estado:</label>
-<select name="estado">
-    <option value="">--Todos--</option>
-    <option value="En espera">En espera</option>
-    <option value="Ya atendido">Ya atendido</option>
-</select>
+    <!-- Dropdown para elegir el estado por el que se filtrará (opcional, si no se elige nada, mostrará todos los ciudadanos) -->
+    <label>Estado:</label>
+    <select name="estado">
+        <option value="">--Todos--</option>
+        <option value="En espera">En espera</option>
+        <option value="Ya atendido">Ya atendido</option>
+    </select>
 
-<label>Fecha: </label>
-<input type="date" name="fecha">
+    <label>Fecha: </label>
+    <input type="date" name="fecha">
 
-<button type="Aceptar">Filtrar</button>
+    <button type="Aceptar">Filtrar</button>
 </form>
 
 <!-- Mostrar los resultados solo si existen -->
@@ -40,4 +47,4 @@
             </tr>
         </c:forEach>
     </table>
-    </c:if>
+</c:if>
