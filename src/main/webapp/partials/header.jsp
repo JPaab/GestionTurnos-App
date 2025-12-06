@@ -5,8 +5,7 @@
 <header class="main-header">
     <nav>
         <div class="main-header-title">
-            <h1>Gestión de Turnos</h1>
-            <span>📅</span>
+            <h1>¡Gestiona tus turnos! 📋</h1>
         </div>
         <div class="main-nav-links">
             <a href="${pageContext.request.contextPath}/">Inicio</a>
