@@ -10,39 +10,42 @@
     <link rel="icon" type="image/png" sizes="32x32"
           href="${pageContext.request.contextPath}/img/favicon-32x32.png">
 </head>
+<body>
 <form action="${pageContext.request.contextPath}/filtro" method="post">
     <a href="${pageContext.request.contextPath}/"
-        class="boton-inicio btn btn-secondary">
+       class="boton-inicio btn btn-secondary">
         🏠
         Inicio
     </a>
+    <div class="page-content">
     <div class="container">
-    <h2>Filtrado de turnos</h2>
+        <h2>Filtrado de turnos</h2>
 
-    <label>Estado:</label>
-    <%-- aqui selecciono el estado para el filtro (en espera, ya atendido o todos) --%>
-    <select name="estado">
-        <option value="todos">--Todos--</option>
-        <option value="EN_ESPERA">En espera</option>
-        <option value="ATENDIDO">Ya atendido</option>
-    </select>
+        <label>Estado:</label>
+        <%-- aqui selecciono el estado para el filtro (en espera, ya atendido o todos) --%>
+        <select name="estado">
+            <option value="todos">--Todos--</option>
+            <option value="EN_ESPERA">En espera</option>
+            <option value="ATENDIDO">Ya atendido</option>
+        </select>
 
-    <label>Fecha: </label>
-    <%-- aqui filtro opcional por una fecha concreta --%>
-    <input type="date" name="fecha">
+        <label>Fecha: </label>
+        <%-- aqui filtro opcional por una fecha concreta --%>
+        <input type="date" name="fecha">
 
-    <%-- aqui boton para ejecutar el filtro --%>
-    <button type="Aceptar">Filtrar</button>
+        <%-- aqui boton para ejecutar el filtro --%>
+        <button type="Aceptar">Filtrar</button>
 
-    <br>
-    <%-- aqui enlace para ir al formulario de crear un nuevo turno --%>
-    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos?action=nuevo">
-        Crear nuevo turno
-    </a>
-    <br><br>
-    <%-- aqui boton para volver al listado general de los turnos --%>
-    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
-    </a>
+        <br>
+        <%-- aqui enlace para ir al formulario de crear un nuevo turno --%>
+        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos?action=nuevo">
+            Crear nuevo turno
+        </a>
+        <br><br>
+        <%-- aqui boton para volver al listado general de los turnos --%>
+        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
+        </a>
+    </div>
     </div>
 </form>
 
@@ -69,4 +72,7 @@
         </c:forEach>
     </table>
     </div>
+    </div>
 </c:if>
+</body>
+</html>

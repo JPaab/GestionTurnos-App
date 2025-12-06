@@ -11,11 +11,13 @@
     <title>Listado De Turnos</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/"
-   class="boton-inicio btn btn-secondary">
-    🏠
-    Inicio
-</a>
+<form action="${pageContext.request.contextPath}/filtro" method="post">
+    <a href="${pageContext.request.contextPath}/"
+       class="boton-inicio btn btn-secondary">
+        🏠
+        Inicio
+    </a>
+    <div class="page-content">
 <div class="container">
 <h1>Turnos</h1>
 
@@ -97,8 +99,9 @@
 <%-- aqui enlace para ir a la pagina de filtro de turnos --%>
 <a class="btn btn-secondary" href="${pageContext.request.contextPath}/filtro">
     Ir al filtro de turnos
-</body>
-</html>
+</a>
 </div>
+</div>
+</form>
 </body>
 </html>
