@@ -22,11 +22,11 @@
 <h1>Turnos</h1>
 
 <%-- aqui mensaje cuando se crea un turno nuevo --%>
-<c:if test="${param.success == 'created'}">
-    <div style="color:green">
-        Turno creado correctamente.
-    </div>
-</c:if>
+    <c:if test="${param.success == 'created'}">
+        <div class="alert alert-success">
+            Turno creado correctamente.
+        </div>
+    </c:if>
 
 <%-- aqui mensaje cuando se marca un turno como atendido --%>
 <c:if test="${param.success == 'updated'}">
@@ -43,9 +43,11 @@
 </c:if>
 
 <%-- aqui mensaje si no hay turnos cargados --%>
-<c:if test="${empty turnos}">
-    <p>No hay turnos registrados!</p>
-</c:if>
+    <c:if test="${empty turnos}">
+        <div class="alert alert-error">
+            No hay turnos registrados.
+        </div>
+    </c:if>
 
 <c:if test="${not empty turnos}">
     <%-- aqui tabla con los turnos cuando la lista no esta vacia --%>
