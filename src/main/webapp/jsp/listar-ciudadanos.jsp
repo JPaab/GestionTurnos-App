@@ -23,11 +23,11 @@
 <h1>Ciudadanos</h1>
 
 <%-- aqui mensaje de exito cuando se crea un ciudadano nuevo --%>
-<c:if test="${param.success == 'created'}">
-    <div style="color:green">
-        Ciudadano creado correctamente.
-    </div>
-</c:if>
+    <c:if test="${param.success == 'created'}">
+        <div class="alert alert-success">
+            Ciudadano creado correctamente.
+        </div>
+    </c:if>
 
 <%-- aqui muestro el error si llega desde el servlet --%>
 <c:if test="${not empty error}">
@@ -37,9 +37,11 @@
 </c:if>
 
 <%-- aqui mensaje cuando no hay ciudadanos en la BD --%>
-<c:if test="${empty ciudadanos}">
-    <p>No hay ciudadanos registrados!</p>
-</c:if>
+    <c:if test="${empty ciudadanos}">
+        <div class="alert alert-error">
+            No hay ciudadanos registrados.
+        </div>
+    </c:if>
 
 <%-- aqui tabla con los ciudadanos y su cantidad de turnos --%>
 <c:if test="${not empty ciudadanos}">
