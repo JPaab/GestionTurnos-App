@@ -11,7 +11,7 @@
           href="${pageContext.request.contextPath}/img/favicon-32x32.png">
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/filtro" method="post">
+<form action="${pageContext.request.contextPath}/ciudadanos" method="post">
     <a href="${pageContext.request.contextPath}/"
        class="boton-inicio btn btn-secondary">
         🏠

@@ -17,6 +17,7 @@
         🏠
         Inicio
     </a>
+</form>
     <div class="page-content">
 <div class="container">
 <h1>Ciudadanos</h1>
@@ -82,6 +83,5 @@
 </a>
 </div>
 </div>
-</form>
 </body>
 </html>
