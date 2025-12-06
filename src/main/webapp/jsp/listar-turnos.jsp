@@ -4,14 +4,17 @@
 <%-- aqui listado de turnos con sus datos principales --%>
 <html lang="es" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <meta charset="UTF-8">
     <title>Listado de turnos.</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+<a href="${pageContext.request.contextPath}/"
+   class="boton-inicio btn btn-secondary">
     🏠
     Inicio
 </a>
+<div class="container">
 <h1>Turnos</h1>
 
 <%-- aqui mensaje cuando se crea un turno nuevo --%>
@@ -84,15 +87,16 @@
 
 <br>
 <%-- aqui enlace para ir al formulario de crear un nuevo turno --%>
-<a href="${pageContext.request.contextPath}/turnos?action=nuevo">
+<a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos?action=nuevo">
     Crear nuevo turno
 </a>
-<br><br>
+<br>
 <br>
 <%-- aqui enlace para ir a la pagina de filtro de turnos --%>
-<a href="${pageContext.request.contextPath}/filtro">
+<a class="btn btn-secondary" href="${pageContext.request.contextPath}/filtro">
     Ir al filtro de turnos
 </body>
 </html>
+</div>
 </body>
 </html>

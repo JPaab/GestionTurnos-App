@@ -3,11 +3,17 @@
 
 <%-- aqui formulario para elegir el estado y la fecha para filtrar turnos --%>
 <html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
 <form action="${pageContext.request.contextPath}/filtro" method="post">
-    <a href="${pageContext.request.contextPath}/" class="boton-inicio">
+    <a href="${pageContext.request.contextPath}/"
+        class="boton-inicio btn btn-secondary">
         🏠
         Inicio
     </a>
+    <div class="container">
     <h2>Filtrado de turnos</h2>
 
     <label>Estado:</label>
@@ -27,14 +33,14 @@
 
     <br>
     <%-- aqui enlace para ir al formulario de crear un nuevo turno --%>
-    <a href="${pageContext.request.contextPath}/turnos?action=nuevo">
+    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos?action=nuevo">
         Crear nuevo turno
     </a>
     <br><br>
-    <br>
     <%-- aqui boton para volver al listado general de los turnos --%>
-    <a href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
+    <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
     </a>
+    </div>
 </form>
 
 <%-- aqui tabla de resultados solo si el servlet mando turnosFiltrados --%>
@@ -59,4 +65,5 @@
             </tr>
         </c:forEach>
     </table>
+    </div>
 </c:if>
