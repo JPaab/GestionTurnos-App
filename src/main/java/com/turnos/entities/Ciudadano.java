@@ -6,12 +6,14 @@ import java.util.List;
 ///---Esta clase mapea la tabla "ciudadanos" en la BD y contiene toda la información de cada ciudadano que pueda solicitar turnos.
 ///---Un ciudadano puede tener cero o multiplices turnos asignados (relacion one to many)
 
+
+//aqui clase entidad ciudadano para representar a las personas del sistema
 @Entity
 @Table(name = "ciudadanos") //aqui especifica el nombre de la tabla en la BD
 public class Ciudadano {
 
-    /// /////////////////////// ATRIBUTOS ////////////////////////
-    //aqui se definiras todos los atributos de la entidad con sus anotaciones JPA
+    ////////////////////////// ATRIBUTOS //////////////////////////
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,16 +30,16 @@ public class Ciudadano {
     @Column(nullable = false, length = 100, unique = true)
     private String email;
 
+    //aqui un ciudadano puede tener varios turnos en la lista
     @OneToMany(mappedBy = "ciudadano", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Turno> turnos;
 
     //aqui el constructor vacio requerido por el JPA
-    // y luego los constructores para crear las instancias de Ciudadano
     public Ciudadano() {
     }
 
+    //aqui constructor que usa los metodos de validar antes de guardar los datos
     public Ciudadano(String nombre, String apellido, String dni, String email) {
-        //aqui constructores con sus validaciones basicas
         this.nombre = validarNombre(nombre);
         this.apellido = validarApellido(apellido);
         this.dni = validarDni(dni);
@@ -66,6 +68,7 @@ public class Ciudadano {
         return dni.trim();
     }
 
+    //aqui valido que el email tenga un formato mas o menos correcto
     private String validarEmail(String email) {
         if (email == null || email.trim().isEmpty()) {
             throw new IllegalArgumentException("El email no puede ser nulo o vacío");
@@ -93,7 +96,7 @@ public class Ciudadano {
     public String getEmail() {return email;}
     public void setEmail(String email) {this.email = validarEmail(email);}
 
-    public List<Turno> getTurnos() {return turnos;} //aqui este get retorna List del Collections
+    public List<Turno> getTurnos() {return turnos;} //aqui get devuelve la lista de turnos
     public void setTurnos(List<Turno> turnos) {this.turnos = turnos;} //aqui setter recibe List
 
     //aqui implementare unos EXTRAS con manejo de Collections
@@ -103,12 +106,14 @@ public class Ciudadano {
         return String.format("%s %s", nombre, apellido);
     }
 
+    //aqui miro si el ciudadano tiene algun turno asociado
     public boolean tieneTurnos() {
         //aqui verifica si el ciudadano tiene turnos asignados
         if (turnos == null) return false;
         return !turnos.isEmpty();
     }
 
+    //aqui cuento cuantos turnos tiene el ciudadano
     public int getCantidadTurnos() {
         //aqui regresa la cantidad de turnos usando operador ternario
         return tieneTurnos() ? turnos.size() : 0;

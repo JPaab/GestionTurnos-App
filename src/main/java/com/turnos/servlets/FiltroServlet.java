@@ -12,20 +12,25 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
+//aqui servlet para filtrar los turnos por estado y fecha
 @WebServlet("/filtro")
 public class FiltroServlet extends HttpServlet {
 
+    //aqui uso el repositorio de turnos para traer todos y luego filtrar con streams
     private TurnoRepositoryJPA turnoRepositoryJPA = new TurnoRepositoryJPA();
 
+    //aqui solo muestro el formulario de filtro
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         req.getRequestDispatcher("jsp/filtrar-turnos.jsp").forward(req, resp);
     }
 
+    //aqui aplico el filtro por estado y fecha
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
+            //aqui leo los valores elegidos en el formulario
             String estadoTurno = req.getParameter("estado");
             String fechaTurno = req.getParameter("fecha");
 
@@ -50,12 +55,16 @@ public class FiltroServlet extends HttpServlet {
                     })
                     .sorted((t1, t2) -> t1.getIdentificadorProgresivo().compareTo(t2.getIdentificadorProgresivo()))
                     .toList();
+
+            //aqui envio los resultados al JSP de listado para mostrarlos en la tabla
             req.setAttribute("turnos", turnosFiltrados);
             req.setAttribute("totalFiltrados", turnosFiltrados.size());
             req.setAttribute("turnosOriginales", todosLosTurnos);
             req.getRequestDispatcher("jsp/listar-turnos.jsp")
                     .forward(req, resp);
+
         } catch (Exception e) {
+            //aqui si hay cualquier error en el filtro muestro el mensaje en el JSP
             req.setAttribute("error", "- Fallo en el filtro." + e.getMessage());
             req.getRequestDispatcher("jsp/filtrar-turnos.jsp")
                     .forward(req, resp);

@@ -1,7 +1,9 @@
 package com.turnos.entities;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+//aqui clase entidad turno para guardar los turnos en la BD
 @Entity
 @Table(name = "turnos")
 public class Turno {
@@ -9,15 +11,16 @@ public class Turno {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //aqui id progresivo unico para cada turno
+    //aqui id progresivo unico para cada turno, distinto de la BD
     @Column(unique = true, nullable = false)
     private String identificadorProgresivo;
 
-    @Enumerated(EnumType.STRING)  //aqui guardamos como String en BD
+    //aqui guardo el estado del turno usando el enum TurnoEstado
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private TurnoEstado estado;  //aqui enum en lugar de String - FIXME RESUELTO
+    private TurnoEstado estado;
 
-    //aqui fecha y hora de creacion del turno
+    //aqui guardo la fecha y hora cuando se crea el turno
     @Column(nullable = false)
     private LocalDateTime fecha;
 
@@ -25,7 +28,7 @@ public class Turno {
     @Column(nullable = false, length = 500)
     private String descripcionTramite;
 
-    //aqui relacion ManyToOne: muchos turnos -> un ciudadano
+    //aqui cada turno pertenece a un ciudadano (muchos turnos -> un ciudadano)
     @ManyToOne
     @JoinColumn(name = "ciudadano_id", nullable = false)
     private Ciudadano ciudadano;
@@ -34,7 +37,7 @@ public class Turno {
     public Turno() {
     }
 
-    //aqui constructor actualizado con enum en lugar de String
+    //aqui constructor que ya viene con las validaciones basicas de los campos
     public Turno(String identificadorProgresivo, TurnoEstado estado, LocalDateTime fecha, String descripcionTramite, Ciudadano ciudadano) {
         this.identificadorProgresivo = validarIdentificador(identificadorProgresivo);
         this.estado = validarEstado(estado);
@@ -103,23 +106,30 @@ public class Turno {
     public Ciudadano getCiudadano() { return ciudadano; }
     public void setCiudadano(Ciudadano ciudadano) { this.ciudadano = validarCiudadano(ciudadano);}
 
-    // metodos EXTRAS
+    /// metodos EXTRAS
+
+    //aqui verificamos si el estado actual del turno es "En espera"
+    //usamos equals() y regresa true cuando el turno esta pendiente de ser atendido
     public boolean estaEnEspera() {
-        //aqui verificamos si el estado actual del turno es "En espera"
-        //usamos equals() y regresa true cuando el turno esta pendiente de ser atendido
+
         return TurnoEstado.EN_ESPERA.equals(estado);
     }
 
+    //aqui verificamos si el estado actual del turno es "Ya atendido"
+    //retorna true cuando el turno ya fue procesado/completado
     public boolean estaAtendido() {
-        //aqui verificamos si el estado actual del turno es "Ya atendido"
-        //retorna true cuando el turno ya fue procesado/completado
+
         return TurnoEstado.ATENDIDO.equals(estado);
     }
 
+    //aqui marco el turno como atendido cambiando el estado
     public void marcarComoAtendido() {
-        //aqui cambiamos el estado del turno de "En espera" a "Ya atendido"
-        //este metodo simula la finalizacion del tramite por el empleado
-        //se usa cuando el empleado completa la atencion del ciudadano
         this.estado = TurnoEstado.ATENDIDO;
+    }
+
+    //aqui devuelvo la fecha formateada para mostrar en los JSP
+    public String getFechaFormateada() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
+        return fecha.format(formatter);
     }
 }
