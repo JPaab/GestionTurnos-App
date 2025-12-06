@@ -461,25 +461,32 @@ td:last-child button[type="submit"] {
 /* =========================================
    Mensajes de estado (éxito / error)
 ========================================= */
-div[style*="color:red"] {
-    background: #fef2f2;
-    border-left: 4px solid var(--danger);
+/* Mensajes genéricos */
+.alert {
+    box-sizing: border-box;
+    width: 100%;                    /* ocupa el ancho de la tarjeta */
+    display: block;
     padding: 0.6rem 0.8rem;
     border-radius: var(--radius-md);
-    color: var(--danger) !important;
-    margin-bottom: 0.75rem;
+    margin: 0.75rem 0;
     font-size: 0.9rem;
+    border-left: 4px solid transparent;
 }
 
-div[style*="color:green"] {
+/* Éxito (verde) */
+.alert-success {
     background: #ecfdf3;
-    border-left: 4px solid var(--accent);
-    padding: 0.6rem 0.8rem;
-    border-radius: var(--radius-md);
-    color: #15803d !important;
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
+    color: #15803d;
+    border-left-color: var(--accent);
 }
+
+/* Error / vacío (rojo) */
+.alert-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-left-color: var(--danger);
+}
+
 
 /* =========================================
    Home: tarjetas Ciudadanos / Turnos
