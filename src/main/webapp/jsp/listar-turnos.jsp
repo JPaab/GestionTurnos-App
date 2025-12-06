@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32"
           href="${pageContext.request.contextPath}/img/favicon-32x32.png">
     <meta charset="UTF-8">
-    <title>Listado de turnos.</title>
+    <title>Listado De Turnos</title>
 </head>
 <body>
 <a href="${pageContext.request.contextPath}/"
