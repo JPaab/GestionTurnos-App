@@ -13,7 +13,7 @@
 
 <body>
 
-<form action="${pageContext.request.contextPath}/filtro" method="post">
+<form action="${pageContext.request.contextPath}/turnos" method="post">
     <a href="${pageContext.request.contextPath}/"
        class="boton-inicio btn btn-secondary">
         🏠

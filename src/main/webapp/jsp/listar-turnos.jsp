@@ -10,13 +10,13 @@
     <meta charset="UTF-8">
     <title>Listado De Turnos</title>
 </head>
-<body>
 <form action="${pageContext.request.contextPath}/filtro" method="post">
-    <a href="${pageContext.request.contextPath}/"
-       class="boton-inicio btn btn-secondary">
-        🏠
-        Inicio
-    </a>
+<a href="${pageContext.request.contextPath}/"
+   class="boton-inicio">
+    🏠
+    Inicio
+</a>
+</form>
     <div class="page-content">
 <div class="container">
 <h1>Turnos</h1>
@@ -65,7 +65,19 @@
         <c:forEach var="t" items="${turnos}">
             <tr>
                 <td>${t.identificadorProgresivo}</td>
-                <td>${t.estado}</td>
+                <td>
+                    <c:choose>
+                        <c:when test="${t.estado == 'EN_ESPERA'}">
+                            En espera
+                        </c:when>
+                        <c:when test="${t.estado == 'ATENDIDO'}">
+                            Atendido
+                        </c:when>
+                        <c:otherwise>
+                            ${t.estado}
+                        </c:otherwise>
+                    </c:choose>
+                </td>
                 <td>${t.fechaFormateada}</td>
                 <td>${t.descripcionTramite}</td>
                 <td>${t.ciudadano.nombre}</td>
@@ -102,6 +114,5 @@
 </a>
 </div>
 </div>
-</form>
 </body>
 </html>

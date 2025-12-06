@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
+<%-- Header--%>
 <header class="main-header">
     <nav>
         <div class="main-header-title">
