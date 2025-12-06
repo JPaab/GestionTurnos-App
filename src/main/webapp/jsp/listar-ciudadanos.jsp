@@ -4,14 +4,17 @@
 <%-- aqui listado general de ciudadanos --%>
 <html lang="es" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <meta charset="UTF-8">
     <title>Listado de ciudadanos.</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+<a href="${pageContext.request.contextPath}/"
+   class="boton-inicio btn btn-secondary">
     🏠
     Inicio
 </a>
+<div class="container">
 <h1>Ciudadanos</h1>
 
 <%-- aqui mensaje de exito cuando se crea un ciudadano nuevo --%>
@@ -64,14 +67,15 @@
 <br>
 
 <%-- aqui enlace para crear un nuevo ciudadano --%>
-<a href="${pageContext.request.contextPath}/ciudadanos?action=nuevo">
+<a class="btn btn-secondary" href="${pageContext.request.contextPath}/ciudadanos?action=nuevo">
     Crear nuevo ciudadano
 </a>
 <br><br>
 
 <%-- aqui enlace para ir al listado de turnos --%>
-<a href="${pageContext.request.contextPath}/turnos">
+<a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos">
     Ir al listado de turnos
 </a>
+</div>
 </body>
 </html>

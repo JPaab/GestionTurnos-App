@@ -4,16 +4,20 @@
 <%-- aqui formulario para crear un nuevo turno --%>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <meta charset="UTF-8">
     <title>Crear Turno</title>
 </head>
 
 <body>
 
-<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+<a href="${pageContext.request.contextPath}/"
+   class="boton-inicio btn btn-secondary">
     🏠
     Inicio
 </a>
+
+<div class="container">
 
 <h1>Crear Nuevo Turno</h1>
 
@@ -65,7 +69,8 @@
 
 <br>
 <%-- aqui boton para volver al listado general de los turnos --%>
-<a href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
+<a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
 </a>
-</body>
+</div>
+</body
 </html>

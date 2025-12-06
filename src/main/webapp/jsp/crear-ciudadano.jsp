@@ -4,14 +4,17 @@
 <%-- aqui estaria el formulario para dar de alta un nuevo ciudadano --%>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <meta charset="UTF-8">
     <title>Crear ciudadanos.</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/" class="boton-inicio">
+<a href="${pageContext.request.contextPath}/"
+    class="boton-inicio btn btn-secondary">
     🏠
     Inicio
 </a>
+<div class="container">
 <h1>Crear nuevo ciudadano</h1>
 
 <%-- aqui muestro el error si falta algun dato o hay problema con el formato --%>
@@ -36,10 +39,13 @@
     <input type="email" name="email" value="${email}"/><br><br>
 
     <%-- aqui boton para guardar el ciudadano --%>
-    <button type="submit">Guardar ciudadano.</button>
-
-    <%-- aqui link para volver al listado de ciudadanos --%>
+    <button type="submit">Guardar ciudadano</button>
 </form>
-<a href="${pageContext.request.contextPath}/ciudadanos">Volver al listado de ciudadanos.</a>
+
+    <br>
+    <%-- aqui link para volver al listado de ciudadanos --%>
+<a class="btn btn-secondary" href="${pageContext.request.contextPath}/ciudadanos">Volver al listado de ciudadanos
+</a>
+</div>
 </body>
 </html>
