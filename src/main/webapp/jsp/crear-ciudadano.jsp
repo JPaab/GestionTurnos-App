@@ -6,7 +6,7 @@
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <meta charset="UTF-8">
-    <title>Crear ciudadanos.</title>
+    <title>Crear Ciudadanos</title>
     <link rel="icon" type="image/png" sizes="32x32"
           href="${pageContext.request.contextPath}/img/favicon-32x32.png">
 </head>

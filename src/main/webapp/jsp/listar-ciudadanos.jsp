@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" sizes="32x32"
           href="${pageContext.request.contextPath}/img/favicon-32x32.png">
     <meta charset="UTF-8">
-    <title>Listado de ciudadanos.</title>
+    <title>Listado De Ciudadanos</title>
 </head>
 <body>
 <a href="${pageContext.request.contextPath}/"
