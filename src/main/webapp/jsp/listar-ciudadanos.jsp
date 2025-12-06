@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%-- aqui listado general de ciudadanos --%>
 <html lang="es" xmlns:c="http://www.w3.org/1999/XSL/Transform">
 <head>
     <meta charset="UTF-8">
@@ -13,27 +14,31 @@
 </a>
 <h1>Ciudadanos</h1>
 
+<%-- aqui mensaje de exito cuando se crea un ciudadano nuevo --%>
 <c:if test="${param.success == 'created'}">
     <div style="color:green">
         Ciudadano creado correctamente.
     </div>
 </c:if>
 
+<%-- aqui muestro el error si llega desde el servlet --%>
 <c:if test="${not empty error}">
     <div style="color:red">
         ${error}
     </div>
 </c:if>
 
+<%-- aqui mensaje cuando no hay ciudadanos en la BD --%>
 <c:if test="${empty ciudadanos}">
     <p>No hay ciudadanos registrados!</p>
 </c:if>
 
+<%-- aqui tabla con los ciudadanos y su cantidad de turnos --%>
 <c:if test="${not empty ciudadanos}">
     <table border="1" cellpadding="5" cellspacing="0">
         <thead>
         <tr>
-            <th>ID</th>
+            <th>Id</th>
             <th>DNI</th>
             <th>Nombre</th>
             <th>Email</th>
@@ -41,13 +46,15 @@
         </tr>
         </thead>
         <tbody>
+
+        <%-- aqui recorro la lista de ciudadanos que envio el servlet --%>
         <c:forEach var="c" items="${ciudadanos}">
             <tr>
-            <td>${c.id}</td>
-            <td>${c.dni}</td>
-            <td>${c.nombreCompleto}</td>
-            <td>${c.email}</td>
-            <td>${c.cantidadTurnos}</td>
+                <td>${c.id}</td>
+                <td>${c.dni}</td>
+                <td>${c.nombreCompleto}</td>
+                <td>${c.email}</td>
+                <td>${c.cantidadTurnos}</td>
             </tr>
         </c:forEach>
         </tbody>
@@ -55,10 +62,14 @@
 </c:if>
 
 <br>
+
+<%-- aqui enlace para crear un nuevo ciudadano --%>
 <a href="${pageContext.request.contextPath}/ciudadanos?action=nuevo">
     Crear nuevo ciudadano
 </a>
 <br><br>
+
+<%-- aqui enlace para ir al listado de turnos --%>
 <a href="${pageContext.request.contextPath}/turnos">
     Ir al listado de turnos
 </a>

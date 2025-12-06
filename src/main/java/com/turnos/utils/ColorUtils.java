@@ -1,5 +1,6 @@
 package com.turnos.utils;
 
+//aqui enum con codigos de colores para pintar textos en la consola
 public enum ColorUtils {
         RESET("\u001B[0m"),
         ROJO("\u001B[31m"),
@@ -14,6 +15,7 @@ public enum ColorUtils {
             this.color = color;
         }
 
+    //aqui uso el color elegido para envolver el texto y devolverlo coloreado
         public String pintar(String texto) {
             return color + texto + RESET.color;
         }

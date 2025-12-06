@@ -1,17 +1,21 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              version="3.0">
-    <persistence-unit name="TurnosPU" transaction-type="RESOURCE_LOCAL"> <!-- Atentos con este dato -->
+    <!-- aqui defino la unidad de persistencia que uso en ConfigJPA -->
+    <persistence-unit name="TurnosPU" transaction-type="RESOURCE_LOCAL">
         <properties>
-            <!-- Configuración de la base de datos -->
+            <!-- aqui configuro la conexion a la base de datos mysql local -->
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestionturnos?serverTimezone=UTC"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value=""/>
-            <!-- Configura el dialecto de Hibernate, indica cómo debe generar el SQL según la base de datos -->
+
+            <!-- aqui digo a hibernate que dialecto usar para mysql -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <!-- Crear las tablas automáticamente -->
+
+            <!-- aqui le digo a hibernate que cree/actualice las tablas automaticamente -->
             <property name="hibernate.hbm2ddl.auto" value="update"/> <!--create(en desarrollo) o update-->
-            <!-- Mostrar sentencias SQL -->
+
+            <!-- aqui muestro por consola las consultas SQL que se ejecutan -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
         </properties>
