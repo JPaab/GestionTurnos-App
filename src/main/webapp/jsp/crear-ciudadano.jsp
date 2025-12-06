@@ -11,11 +11,13 @@
           href="${pageContext.request.contextPath}/img/favicon-32x32.png">
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/"
-    class="boton-inicio btn btn-secondary">
-    🏠
-    Inicio
-</a>
+<form action="${pageContext.request.contextPath}/filtro" method="post">
+    <a href="${pageContext.request.contextPath}/"
+       class="boton-inicio btn btn-secondary">
+        🏠
+        Inicio
+    </a>
+    <div class="page-content">
 <div class="container">
 <h1>Crear nuevo ciudadano</h1>
 
@@ -49,5 +51,7 @@
 <a class="btn btn-secondary" href="${pageContext.request.contextPath}/ciudadanos">Volver al listado de ciudadanos
 </a>
 </div>
+</div>
+</form>
 </body>
 </html>

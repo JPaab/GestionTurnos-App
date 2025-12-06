@@ -11,11 +11,13 @@
     <title>Listado De Ciudadanos</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/"
-   class="boton-inicio btn btn-secondary">
-    🏠
-    Inicio
-</a>
+<form action="${pageContext.request.contextPath}/filtro" method="post">
+    <a href="${pageContext.request.contextPath}/"
+       class="boton-inicio btn btn-secondary">
+        🏠
+        Inicio
+    </a>
+    <div class="page-content">
 <div class="container">
 <h1>Ciudadanos</h1>
 
@@ -79,5 +81,7 @@
     Ir al listado de turnos
 </a>
 </div>
+</div>
+</form>
 </body>
 </html>
