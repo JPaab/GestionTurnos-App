@@ -5,7 +5,7 @@
 <header class="main-header">
     <nav>
         <div class="main-header-title">
-            <h1>¡Gestiona tus turnos! 📋
+            <h1>¡Gestiona tus turnos!
             </h1>
         </div>
         <div class="main-nav-links">
@@ -16,3 +16,5 @@
         </div>
     </nav>
 </header>
+
+
