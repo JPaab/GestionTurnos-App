@@ -35,6 +35,7 @@ jakarta.persistence.jdbc.url tenga el nombre de tu base de datos.
 jakarta.persistence.jdbc.user y jakarta.persistence.jdbc.password coincidan con lo que creaste.
 ```
 ---
+```
 > **Flujo de uso:**
 >
 > **Inicio (index.jsp)**
@@ -65,7 +66,8 @@ jakarta.persistence.jdbc.user y jakarta.persistence.jdbc.password coincidan con 
 > Ir a “Filtrar turnos” → filtrar-turnos.jsp / FiltroServlet.
 > 
 > Aplicar criterios (fecha, estado, etc.) y ver resultados.
-> 
+>
+```
 ---
 
 ## ⚙️ Tecnologías utilizadas.
