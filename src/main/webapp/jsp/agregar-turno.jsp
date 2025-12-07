@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Turno</title>
+    <%-- Favicon de la aplicación (icono de la pestaña del navegador) --%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <link rel="icon" type="image/png" sizes="32x32"
           href="${pageContext.request.contextPath}/img/favicon-32x32.png">
@@ -72,12 +73,14 @@
             </form>
 
             <br>
-        <%-- aqui boton para volver al listado general de los turnos --%>
-        <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
-        </a>
-    </div>
+            <%-- aqui boton para volver al listado general de los turnos --%>
+            <a class="btn btn-secondary" href="${pageContext.request.contextPath}/turnos">Volver al listado de turnos
+            </a>
+        </div>
     </div>
     </div>
 </form>
 </body>
 </html>
+
+

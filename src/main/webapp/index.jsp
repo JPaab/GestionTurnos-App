@@ -17,14 +17,15 @@
         <section class="home-grid">
             <div class="home-card">
                 <h2>Ciudadanos</h2>
-
                 <div class="section-actions">
                     <div class="section-actions-primary">
+                        <%-- Enlace para crear un nuevo ciudadano --%>
                         <a href="${pageContext.request.contextPath}/ciudadanos?action=nuevo"
                            class="btn btn-secondary btn-sm">
                             Nuevo ciudadano
                         </a>
                     </div>
+                    <%-- Enlace para listar todos los ciudadanos existentes --%>
                     <div class="section-actions-secondary">
                         <a href="${pageContext.request.contextPath}/ciudadanos"
                            class="btn btn-outline btn-sm">
@@ -40,16 +41,19 @@
 
                 <div class="section-actions">
                     <div class="section-actions-primary">
+                        <%-- Enlace para crear un nuevo turnos --%>
                         <a href="${pageContext.request.contextPath}/turnos?action=nuevo"
                            class="btn btn-secondary btn-sm">
                             Nuevo turno
                         </a>
                     </div>
+                    <%-- Enlace para listar todos los turnos --%>
                     <div class="section-actions-secondary">
                         <a href="${pageContext.request.contextPath}/turnos"
                            class="btn btn-outline btn-sm">
                             Ver turnos
                         </a>
+                        <%-- Enlace para acceder al formulario de filtrado de turnos --%>
                         <a href="${pageContext.request.contextPath}/filtro"
                            class="btn btn-outline btn-sm">
                             Filtrar turnos
@@ -66,3 +70,5 @@
 
 </body>
 </html>
+
+
