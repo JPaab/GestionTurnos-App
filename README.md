@@ -12,7 +12,7 @@ desarrollada con **Java**, **Servlet**, **JSP** y **JPA**.
 * Filtrar turnos por estado y fecha.
 
 ---
-## ✅ Requisitos y ejecución
+## ✅ ¿Como arrancarlo?
 
 Para ejecutar el programa, comprueba que los siguientes puntos estan correctos.
 
@@ -35,42 +35,32 @@ jakarta.persistence.jdbc.url tenga el nombre de tu base de datos.
 jakarta.persistence.jdbc.user y jakarta.persistence.jdbc.password coincidan con lo que creaste.
 ```
 ---
-```
-> **Flujo de uso:**
->
-> **Inicio (index.jsp)**
-> 
-> Desde aquí se accede a las secciones de Ciudadanos y Turnos. 
+## 🧰 Flujo de uso
 
-> **Ciudadanos**
-> 
-> Ir a “Nuevo ciudadano” → se abre crear-ciudadano.jsp.
-> 
-> Guardar el ciudadano → se procesa en CiudadanoServlet.
-> 
-> Ver el listado → listar-ciudadanos.jsp.
+1. **Inicio (index.jsp)**
 
+   * Desde aquí se accede a las secciones de Ciudadanos y Turnos. 
 
-> **Turnos**
-> 
-> Ir a “Nuevo turno” → agregar-turno.jsp.
-> 
-> Seleccionar un ciudadano, completar datos → TurnoServlet guarda el turno.
-> 
-> Ver turnos → listar-turnos.jsp.
-> 
-> Cambiar estado → formulario/acción que apunta a ActualizarTurnoServlet.
+2. **Ciudadanos**
 
-> **Filtrar**
-> 
-> Ir a “Filtrar turnos” → filtrar-turnos.jsp / FiltroServlet.
-> 
-> Aplicar criterios (fecha, estado, etc.) y ver resultados.
->
-```
+   * Ir a “Nuevo ciudadano” → se abre crear-ciudadano.jsp
+   * Seleccionar un ciudadano, completar datos → TurnoServlet guarda el turno.
+   * Ver el listado → listar-ciudadanos.jsp.
+
+3. **Turnos**
+
+   * Ir a “Nuevo turno” → agregar-turno.jsp.
+   * Seleccionar un ciudadano, completar datos → TurnoServlet guarda el turno.
+   * Ver turnos → listar-turnos.jsp.
+   * Cambiar estado → formulario/acción que apunta a ActualizarTurnoServlet.
+
+4. **Filtrar**
+
+   * Ir a “Filtrar turnos” → filtrar-turnos.jsp / FiltroServlet.
+   * Aplicar criterios (fecha, estado, etc.) y ver resultados.
 ---
 
-## ⚙️ Tecnologías utilizadas.
+## 💡 Tecnologías utilizadas.
 
 1. **Lenguaje:** Java (8+ recomendado)
 
