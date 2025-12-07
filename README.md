@@ -14,7 +14,7 @@ desarrollada con **Java**, **Servlet**, **JSP** y **JPA**.
 ---
 ## ✅ Requisitos y ejecución
 
-Para ejecutar el programa, confirma que los siguientes puntos estan correctos.
+Para ejecutar el programa, comprueba que los siguientes puntos estan correctos.
 
 1. **Clonar el repositorio**
 ```
@@ -22,20 +22,61 @@ git clone <URL_DEL_REPO>
 cd <NOMBRE_DEL_PROYECTO>
 ```
 2. **Configurar la base de datos**
-3. **Uso en la página web**
+```
+Crea un "schema" llamado 'gestionturnos'.
+Las columnas se crean automaticamente al iniciar la pagina web.
+```
+3. **Configurar la base de datos**
+```
+Asegúrate de que:
+
+hibernate.dialect apunte a MySQL.
+jakarta.persistence.jdbc.url tenga el nombre de tu base de datos.
+jakarta.persistence.jdbc.user y jakarta.persistence.jdbc.password coincidan con lo que creaste.
+```
+---
+> **Flujo de uso:**
+>
+> **Inicio (index.jsp)**
+> 
+> Desde aquí se accede a las secciones de Ciudadanos y Turnos. 
+
+> **Ciudadanos**
+> 
+> Ir a “Nuevo ciudadano” → se abre crear-ciudadano.jsp.
+> 
+> Guardar el ciudadano → se procesa en CiudadanoServlet.
+> 
+> Ver el listado → listar-ciudadanos.jsp.
 
 
+> **Turnos**
+> 
+> Ir a “Nuevo turno” → agregar-turno.jsp.
+> 
+> Seleccionar un ciudadano, completar datos → TurnoServlet guarda el turno.
+> 
+> Ver turnos → listar-turnos.jsp.
+> 
+> Cambiar estado → formulario/acción que apunta a ActualizarTurnoServlet.
+
+> **Filtrar**
+> 
+> Ir a “Filtrar turnos” → filtrar-turnos.jsp / FiltroServlet.
+> 
+> Aplicar criterios (fecha, estado, etc.) y ver resultados.
+> 
 ---
 
 ## ⚙️ Tecnologías utilizadas.
 
-1. **Java** (8+)
+1. **Lenguaje:** Java (8+ recomendado)
 
 2. **Maven** ('maven-archetype-webapp')
 
 3. **Jakarta/Java EE Servlets**
 
-4. **JSP + JSTL**
+4. **JSP + JSTL para Jakarta**
 
 5. **JPA** (con 'EntityManager' y 'persistence.xml')
 
@@ -65,6 +106,10 @@ com.turnos
  │   └─ index.jsp                                  # Página de entrada de la aplicación
  ├─ css/
  │   └─ style.css                                  # style.css para la app, aquí esta toda la estetica de la aplicación.
+ ├─ img/
+ │   └─ favicon.ico                                # Imagenes usadas para el favicon de la pagina web.    
+ │   └─ favicon-16x16.png                            
+ │   └─ favicon-32x32.png
  ├─ jsp/
  │   └─ agregar-turno.jsp                          # Formulario para crear un nuevo turno
  │   └─ crear-ciudadano.jsp                        # Formulario para registrar un nuevo ciudadano
@@ -99,12 +144,7 @@ com.turnos
 * Estado `EN ESPERA`, `ATENDIDO`
 * Fecha basada en `LocalDate`
 * Los resultados filtrados se muestran en el mismo formato que el listado general.
-
 ---
-> **Anotaciones:**
->
-> * 
-> * 
-> * 
 
----
+
+
